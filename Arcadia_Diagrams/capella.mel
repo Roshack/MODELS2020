@@ -1,0 +1,15 @@
+absFunction(X) |- ownedFunctions {id:X, name:label};
+
+absComponent(X) |- ownedLogicalComponents {id:X, name:label};
+
+absData(X) |- ownedFunctionalExchanges {id:X, name:label};
+
+.exchange(I,O) |- ownedFunctionalExchanges {source["#%"]:O, target["#%"]:I, name:label};
+
+.output(Y,Z) |- mel.parent(ownedFunctions{id:Y}, outputs {id:Z});
+
+.input(Y,Z) |- mel.parent(ownedFunctions{id:Y}, inputs {id:Z});
+
+contain(Owner,Ownee) |- mel.parent(ownedLogicalComponents{id:Owner}, ownedFunctionalAllocation{targetElement["#%"]:Ownee});
+
+$^dataFlow(Y,Z) |- output(Y,O), input(Z, I), exchange(I, O) {label:data};

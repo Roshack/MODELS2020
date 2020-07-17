@@ -1,0 +1,26 @@
+StateMachine(X) |- ownedBehavior{"xmi:type"="uml:StateMachine", "xmi:id":X, name:name};
+# Can easily just bind name instead of equality but want only this statemachine for fact base size.
+# If instead we wrote name:name we would extract ALL state charts. Which is fine if that is desired.
+# Though we may want to include then a containment relationship between state machines and everything else
+# so that can be used to look at an individual state machine in the resultant fact base.
+Region(R) |- mel.ancestor(ownedBehavior{"xmi:id":SM}, region{"xmi:id":R, name:name}),
+             StateMachine(SM);
+             
+$^Sibling(X,Y) |- mel.parent(subvertex{"xmi:id":parent}, region{"xmi:id":X}),
+                  mel.parent(subvertex{"xmi:id":parent}, region{"xmi:id":Y});
+
+State(X) |- mel.parent(region{"xmi:id":R}, subvertex{"xmi:id":X, name:label, "xmi:type"[":%"]:type}),
+            Region(R);
+
+contains(parent, child) |- mel.ancestor(subvertex{"xmi:id":parent}, subvertex{"xmi:id":child}),
+                           State(child), State(parent);
+transition(Source,Target) |- mel.parent(region{"xmi:id":Region}, transition{"xmi:id":transID, source:Source, target:Target, guard:G}),
+                             Region(Region),
+                             @mel.parent(transition{"xmi:id":transID}, ownedRule{"xmi:id":G}),
+                             @mel.parent(ownedRule{"xmi:id":G}, specification{value:guardVal}),
+                             @mel.ancestor(transition{"xmi:id":transID}, effect{"xmi:id":eid}),
+                             @mel.parent(effect{"xmi:id":eid}, body{mel.contents["\n%"]:effect}),
+                             @mel.parent(transition { "xmi:id": transID }, trigger { event: eventId }),
+                             @packagedElement { "xmi:type" = "uml:SignalEvent", "xmi:id": eventId, signal: signalId },
+	                           @packagedElement { "xmi:type" = "uml:Signal", "xmi:id": signalId, name: trigger };
+

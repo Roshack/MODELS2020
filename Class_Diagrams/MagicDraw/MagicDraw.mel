@@ -1,0 +1,41 @@
+Class(X) |- packagedElement{"xmi:type"="uml:Class", name:label, "xmi:id":X};
+
+InheritsFrom(Parent,Child) |- mel.parent(packagedElement{"xmi:id":Child}, generalization{general:Parent});
+
+Interface(X) |- packagedElement{"xmi:type"="uml:Interface", name:name, "xmi:id":X};
+
+Field(X) |- ownedAttribute{"xmi:type"="uml:Property", "xmi:id":X, name:label, visibility:visiblity,
+                           isReadOnly:const, isStatic:static, type:typeID, mel.exists(type), mel.nexists(association)},
+                @packagedElement{"xmi:id":typeID, name:type}; 
+
+Field(X) |- ownedAttribute{"xmi:type"="uml:Property", "xmi:id":X, name:label, visibility:visiblity, 
+                           isReadOnly:const, mel.nexists(type), mel.nexists(association)},
+                mel.parent(ownedAttribute{"xmi:id":X}, type{href["#%"]:typeID}),
+                packagedElement{"xsi:type"="uml:DataType", "xmi:id":typeID, name:type};
+
+FieldOf(C,A) |- mel.parent(packagedElement{"xmi:type"="uml:Class", "xmi:id":C}, ownedAttribute{"xmi:id"["_%"]:A});
+
+Method(X) |- ownedOperation{"xmi:id":X, name:name, visibility:visibility},
+             @mel.parent(ownedOperation{"xmi:id":X}, 
+                         ownedParameter{"xmi:type"="uml:Parameter", direction="return", name:returnName, type:TID}),
+             @packagedElement{"xmi:type"="uml:Class", name:returnType, "xmi:id":TID};
+
+MethodOf(Class, Method) |- mel.parent(packagedElement{"xmi:id":Class}, ownedOperation{"xmi:id":Method}),
+                           Class(Class), Method(Method);
+
+
+Parameter(X) |- ownedParameter{"xmi:type"="uml:Parameter", "xmi:id":X, name:name, type:TID, direction!="return"},
+                @packagedElement{"xmi:type"="uml:Class", name:type, "xmi:id":TID};
+
+ParameterOf(Fn,P) |- mel.parent(ownedOperation{"xmi:id":Fn}, ownedParameter{"xmi:id":P}),
+                     Method(Fn), Parameter(P);
+
+Composition(Owner,Ownee) |- ownedAttribute{"xmi:type"="uml:Property", association:AID, "xmi:id":L, aggregation="composite"},
+                            ownedAttribute{"xmi:type"="uml:Property", association:AID, "xmi:id":R, mel.nexists(aggregation)},
+                            mel.parent(packagedElement{"xmi:id":Owner}, ownedAttribute{"xmi:id":L}),
+                            mel.parent(packagedElement{"xmi:id":Ownee}, ownedAttribute{"xmi:id":R}),
+                            Class(Owner), Class(Ownee),
+                            @mel.ancestor(ownedAttribute{"xmi:id":L}, lowerValue{value:ownerLowerMult}),
+                            @mel.ancestor(ownedAttribute{"xmi:id":L}, upperValue{value:ownerUpperMult}),
+                            @mel.ancestor(ownedAttribute{"xmi:id":R}, lowerValue{value:owneeLowerMult}),
+                            @mel.ancestor(ownedAttribute{"xmi:id":R}, upperValue{value:owneeUpperMult});

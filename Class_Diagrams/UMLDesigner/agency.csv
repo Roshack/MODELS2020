@@ -1,0 +1,53 @@
+FactType,Param1,Param2,EID,SID,associationID,compositionID,conn,label,multLower,multUpper,owneeRoleName,ownerRoleName,type
+Class,HoPzcMTfEeC0wZa75TykZw,,,,,,,Invoice,,,,,
+Class,HbZDMMTfEeC0wZa75TykZw,,,,,,,Partner,,,,,
+Class,HHf20MTfEeC0wZa75TykZw,,,,,,,Reservation,,,,,
+Class,Hj8iQMTfEeC0wZa75TykZw,,,,,,,Customer,,,,,
+Class,HOkvMMTfEeC0wZa75TykZw,,,,,,,Catalog,,,,,
+Class,2K8ZoMTfEeC0wZa75TykZw,,,,,,,Agency,,,,,
+Class,F8k70MTfEeC0wZa75TykZw,,,,,,,Travel,,,,,
+Class,LOzXQMf8EeCUSo-uQfq_HA,,,,,,,Availability,,,,,
+Field,pyyRQMfsEeCBha8FS92Ybw,,,,,,,id,1,1,,,Integer
+Field,4pBloMTfEeC0wZa75TykZw,,,,,,,name,1,1,,,String
+Field,yRT8wMfsEeCBha8FS92Ybw,,,,,,,adress,,*,,,String
+Field,28TlIMTfEeC0wZa75TykZw,,,,,,,name,1,1,,,String
+Field,-ztg0MgBEeC-rqkzDXqbnw,,,,,,,name,1,1,,,String
+Field,s9svQMgGEeC-rqkzDXqbnw,,,,,,,destination,,1,,,String
+typeOf,Date,ujykUMf7EeCUSo-uQfq_HA,,,,,_zIMjoMf7EeCUSo-uQfq_HA,emission,,,,,
+typeOf,Internal Authentification,6LPNQKBYEeKytpXBok_8qQ,,,,,_ApIQ8MT6EeC7sd1uYTaNyA,authService,,,,,
+typeOf,Booking System,kErpEPULEeKlqaVJYxRgMw,,,,,_yS5LMMT5EeC7sd1uYTaNyA,Booking SystemPort,,,,,
+typeOf,Date,ErUNYMgCEeC-rqkzDXqbnw,,,,,_zIMjoMf7EeCUSo-uQfq_HA,issuedOn,,,,,
+typeOf,ReservationStatus,NT4lsMgCEeC-rqkzDXqbnw,,,,,_HeF3AMgCEeC-rqkzDXqbnw,status,,,,,
+typeOf,Agency  Offers,kEsQIfULEeKlqaVJYxRgMw,,,,,_99SVwMT5EeC7sd1uYTaNyA,Agency  OffersPort,,,,,
+typeOf,Date,Mls4wMf8EeCUSo-uQfq_HA,,,,,_zIMjoMf7EeCUSo-uQfq_HA,start,,,,,
+typeOf,Date,OMBWUMf8EeCUSo-uQfq_HA,,,,,_zIMjoMf7EeCUSo-uQfq_HA,end,,,,,
+typeOf,Agency App,FnADAPUpEeKKhJd4Nj7QEg,,,,,_GT7fEMgEEeC-rqkzDXqbnw,Agency AppPort,,,,,
+typeOf,Customers App,ONibAfUpEeKKhJd4Nj7QEg,,,,,_JSceoMgEEeC-rqkzDXqbnw,Customers AppPort,,,,,
+Field,ujykUMf7EeCUSo-uQfq_HA,,,,,,,emission,1,1,,,Date
+Field,ErUNYMgCEeC-rqkzDXqbnw,,,,,,,issuedOn,,1,,,Date
+Field,NT4lsMgCEeC-rqkzDXqbnw,,,,,,,status,1,1,,,ReservationStatus
+Field,Mls4wMf8EeCUSo-uQfq_HA,,,,,,,start,1,1,,,Date
+Field,OMBWUMf8EeCUSo-uQfq_HA,,,,,,,end,1,1,,,Date
+FieldOf,HoPzcMTfEeC0wZa75TykZw,pyyRQMfsEeCBha8FS92Ybw,,,,,,,,,,,
+FieldOf,HoPzcMTfEeC0wZa75TykZw,ujykUMf7EeCUSo-uQfq_HA,,,,,,,,,,,
+FieldOf,HHf20MTfEeC0wZa75TykZw,ErUNYMgCEeC-rqkzDXqbnw,,,,,,,,,,,
+FieldOf,HHf20MTfEeC0wZa75TykZw,NT4lsMgCEeC-rqkzDXqbnw,,,,,,,,,,,
+FieldOf,Hj8iQMTfEeC0wZa75TykZw,4pBloMTfEeC0wZa75TykZw,,,,,,,,,,,
+FieldOf,Hj8iQMTfEeC0wZa75TykZw,yRT8wMfsEeCBha8FS92Ybw,,,,,,,,,,,
+FieldOf,2K8ZoMTfEeC0wZa75TykZw,28TlIMTfEeC0wZa75TykZw,,,,,,,,,,,
+FieldOf,F8k70MTfEeC0wZa75TykZw,-ztg0MgBEeC-rqkzDXqbnw,,,,,,,,,,,
+FieldOf,F8k70MTfEeC0wZa75TykZw,s9svQMgGEeC-rqkzDXqbnw,,,,,,,,,,,
+FieldOf,LOzXQMf8EeCUSo-uQfq_HA,Mls4wMf8EeCUSo-uQfq_HA,,,,,,,,,,,
+FieldOf,LOzXQMf8EeCUSo-uQfq_HA,OMBWUMf8EeCUSo-uQfq_HA,,,,,,,,,,,
+Association,HoPzcMTfEeC0wZa75TykZw,HHf20MTfEeC0wZa75TykZw,,,NQECMMftEeCBha8FS92Ybw,,,invoicesToReservations,,,,,
+Association,HHf20MTfEeC0wZa75TykZw,2K8ZoMTfEeC0wZa75TykZw,,,8ncqIMfsEeCBha8FS92Ybw,,,agenciestoReservations,,,,,
+Association,2K8ZoMTfEeC0wZa75TykZw,F8k70MTfEeC0wZa75TykZw,,,C4MxUMf_EeCUSo-uQfq_HA,,,offers,,,,,
+Association,F8k70MTfEeC0wZa75TykZw,LOzXQMf8EeCUSo-uQfq_HA,,,SQc1EMf8EeCUSo-uQfq_HA,,,Travels,,,,,
+Composition,HHf20MTfEeC0wZa75TykZw,Hj8iQMTfEeC0wZa75TykZw,_JyMvAMf_EeCUSo-uQfq_HA,_8ndRMMfsEeCBha8FS92Ybw,,JyKSwMf_EeCUSo-uQfq_HA,,reservationsToCustomers,,,customer,reservations,
+Composition,HHf20MTfEeC0wZa75TykZw,Hj8iQMTfEeC0wZa75TykZw,_JyMvAMf_EeCUSo-uQfq_HA,_NQHFgMftEeCBha8FS92Ybw,,JyKSwMf_EeCUSo-uQfq_HA,,reservationsToCustomers,,,customer,reservation,
+Composition,HHf20MTfEeC0wZa75TykZw,Hj8iQMTfEeC0wZa75TykZw,_JyMvAMf_EeCUSo-uQfq_HA,_JyK50Mf_EeCUSo-uQfq_HA,,JyKSwMf_EeCUSo-uQfq_HA,,reservationsToCustomers,,,customer,reservations,
+Composition,Hj8iQMTfEeC0wZa75TykZw,2K8ZoMTfEeC0wZa75TykZw,_3_itEMf7EeCUSo-uQfq_HA,_JyMvAMf_EeCUSo-uQfq_HA,,3_iGAMf7EeCUSo-uQfq_HA,,agencysToCustomers,,,mainAgency,customer,
+Composition,Hj8iQMTfEeC0wZa75TykZw,2K8ZoMTfEeC0wZa75TykZw,_3_itEMf7EeCUSo-uQfq_HA,_3_j7MMf7EeCUSo-uQfq_HA,,3_iGAMf7EeCUSo-uQfq_HA,,agencysToCustomers,,,mainAgency,customers,
+Composition,F8k70MTfEeC0wZa75TykZw,HOkvMMTfEeC0wZa75TykZw,_4VBLoMfsEeCBha8FS92Ybw,_SQc1Ecf8EeCUSo-uQfq_HA,,4VAkkMfsEeCBha8FS92Ybw,,catalogsToTravels,,,catalogs,travels,
+Composition,F8k70MTfEeC0wZa75TykZw,HOkvMMTfEeC0wZa75TykZw,_4VBLoMfsEeCBha8FS92Ybw,_C4P0oMf_EeCUSo-uQfq_HA,,4VAkkMfsEeCBha8FS92Ybw,,catalogsToTravels,,,catalogs,offers,
+Composition,F8k70MTfEeC0wZa75TykZw,HOkvMMTfEeC0wZa75TykZw,_4VBLoMfsEeCBha8FS92Ybw,_4VEO8MfsEeCBha8FS92Ybw,,4VAkkMfsEeCBha8FS92Ybw,,catalogsToTravels,,,catalogs,travels,

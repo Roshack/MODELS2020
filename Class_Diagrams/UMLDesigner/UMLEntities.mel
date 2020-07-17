@@ -1,0 +1,32 @@
+Class(X) |- packagedElement{"xmi:type"="uml:Class", name:label, "xmi:id"["_%"]:X};
+
+Field(X) |- mel.parent(ownedAttribute{name:label,"xmi:id"["_%"]:X}, lowerValue{value:multLower}), 
+                mel.parent(ownedAttribute{name:label,"xmi:id"["_%"]:X}, upperValue{value:multUpper}),
+                mel.parent(ownedAttribute{name:label,"xmi:id"["_%"]:X}, type{href["#%"]:type});
+
+.typeOf(A,B) |- ownedAttribute{type:conn, name:label,"xmi:id"["_%"]:B}, packagedElement{"xmi:id":conn, name:A};
+
+Field(X) |- mel.parent(ownedAttribute{name:label,"xmi:id"["_%"]:X}, lowerValue{value:multLower}), 
+            mel.parent(ownedAttribute{name:label,"xmi:id"["_%"]:X}, upperValue{value:multUpper}),
+                typeOf(type,X);
+
+FieldOf(C,A) |- mel.parent(packagedElement{"xmi:type"="uml:Class", "xmi:id"["_%"]:C}, ownedAttribute{"xmi:id"["_%"]:A});
+
+^$Association(S,E) |- Class(S), Class(E),
+                    mel.parent(packagedElement{"xmi:id"["_%"]:associationID, "xmi:type"="uml:Association", name:label}, 
+                               ownedEnd{type["_%"]:S, aggregation!="composite"}),
+                    mel.parent(packagedElement{"xmi:id"["_%"]:associationID, "xmi:type"="uml:Association", name:label}, 
+                                ownedEnd{type["_%"]:E, aggregation!="composite"});
+
+
+^$Composition(S,E) |- Class(S), Class(E),
+                    ownedEnd{"xmi:id":SID, type["_%"]:S, name:ownerRoleName},
+                    ownedEnd{"xmi:id":EID, type["_%"]:E, name:owneeRoleName, aggregation="composite"},
+                    mel.parent(packagedElement{"xmi:id"["_%"]:compositionID, "xmi:type"="uml:Association", name:label}, 
+                               ownedEnd{type["_%"]:S}),
+                    mel.parent(packagedElement{"xmi:id"["_%"]:compositionID, "xmi:type"="uml:Association", name:label}, 
+                               ownedEnd{type["_%"]:E, aggregation="composite"}),
+                    @mel.parent(ownedEnd{"xmi:ID":SID}, lowerValue{value:ownerLowerMult}),
+                    @mel.parent(ownedEnd{"xmi:ID":SID}, upperValue{value:ownerUpperMult}),
+                    @mel.parent(ownedEnd{"xmi:ID":EID}, lowerValue{value:owneeLowerMult}),
+                    @mel.parent(ownedEnd{"xmi:ID":EID}, upperValue{value:owneeUpperMult});
