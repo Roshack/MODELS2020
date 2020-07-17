@@ -17,7 +17,7 @@ vector<unique_ptr<melStmt>> *stmtsPtr;
 int main(int argc, char **argv)
 {
     if (argc < 3) {
-        cout << "Usage: " << string{argv[0]} << " grammar_file xml_file [xml_files] [-o output]" << endl;
+        cout << "Usage: " << string{argv[0]} << " mel_program xml_file [-o output]" << endl;
         return -1;
     }
     vector<string> fileNames;
