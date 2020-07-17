@@ -1,0 +1,48 @@
+Antilock Brake System (ABS)
+Automatic Park Assist (APA)
+Active Rear Steer (ARS)
+Active Suspension Control (ASC)
+Collision Imminent Braking (CIB)
+Electronic Brake Control Module (EBCM)
+Electronic Brakeforce Distribution (EBD)
+Engine Control Module (ECM)
+Electronic Park Brake (EPB)
+Electronic Power Steer (EPS)
+Electronic Stability Control (ESC)
+Full Speed Range Adaptive Cruise Control (FSRACC)
+Traction Control System (TCS)
+
+
+individual wheel speed influences ABS
+
+vehicle speed influences ABS
+
+ABS activeif individual wheel breaking > 0
+
+ABS activeif individual wheel speed == 0
+
+ABS activeif vehicle speed > 0
+
+ABS influences EBCM
+
+individual wheel speed influences EBCM
+
+individual wheel speed influences TCS
+
+TCS influences EBCM
+
+TCS activeif propulsion > max propulsion
+
+TCS activeif drive wheels
+
+ARS influences rear wheel angle
+
+vehicle speed influences ARS
+
+hand wheel angle influences ARS
+hand wheel angle influences EPS
+hand wheel torque influences EPS
+EPS influences hand wheel angle
+APA influences EPS
+
+EPS influences front wheel angle
