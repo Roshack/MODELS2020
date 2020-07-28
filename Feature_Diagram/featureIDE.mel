@@ -1,0 +1,38 @@
+Feature(X) |- mel.ancestor(struct{}, feature{abstract:isAbstract, mandatory:isMandatory, name:X});
+Feature(X) |- and{abstract:isAbstract, mandatory:isMandatory, name:X};
+Feature(X) |- or{abstract:isAbstract, mandatory:isMandatory, name:X};
+Feature(X) |- alt{abstract:isAbstract, mandatory:isMandatory, name:X};
+FeatureOf(A,B) |- and{name:A},
+                  mel.parent(and{name:A}, and{name:B});
+FeatureOf(A,B) |- and{name:A},
+                  mel.parent(and{name:A}, alt{name:B});
+FeatureOf(A,B) |- and{name:A},
+                  mel.parent(and{name:A}, or{name:B});
+FeatureOf(A,B) |- and{name:A},
+                  mel.parent(and{name:A}, feature{name:B});
+
+FeatureOf(A,B) |- alt{name:A},
+                  mel.parent(alt{name:A}, and{name:B});
+FeatureOf(A,B) |- alt{name:A},
+                  mel.parent(alt{name:A}, alt{name:B});
+FeatureOf(A,B) |- alt{name:A},
+                  mel.parent(alt{name:A}, or{name:B});
+FeatureOf(A,B) |- alt{name:A},
+                  mel.parent(alt{name:A}, feature{name:B});
+
+FeatureOf(A,B) |- or{name:A},
+                  mel.parent(or{name:A}, and{name:B});
+FeatureOf(A,B) |- or{name:A},
+                  mel.parent(or{name:A}, alt{name:B});
+FeatureOf(A,B) |- or{name:A},
+                  mel.parent(or{name:A}, or{name:B});
+FeatureOf(A,B) |- or{name:A},
+                  mel.parent(or{name:A}, feature{name:B});
+
+$^MutuallyExclusive(A,B) |- Feature(A), Feature(B),
+                            alt{name:parent},
+                            FeatureOf(parent,A), FeatureOf(parent,B);
+
+$^RequiredTogether(A,B) |- Feature(A), Feature(B),
+                           and{name:parent},
+                           FeatureOf(parent,A), FeatureOf(parent,B);
